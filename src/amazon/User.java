@@ -1,9 +1,13 @@
 package amazon;
 
+import java.util.ArrayList;
+
 public class User {
     private int user_id;
     private String user_name, user_email, pass;
     private boolean admin = false;
+
+    ArrayList<Product> carts = new ArrayList<>();
 
     public User(String user_name, String user_email, String pass) {
         this.user_id = (int)(100000 + Math.random() * 1000000);
