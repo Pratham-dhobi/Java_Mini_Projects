@@ -6,13 +6,16 @@ public class AccountDetails {
     private String email;
     private int contact_num;
     private int acc_num;
+    private double balance = 0.00;
+    private int pass;
 
-    public AccountDetails(String name, int aadhaarnum, String email, int contact_num) {
+    public AccountDetails(String name, int aadhaarnum, String email, int contact_num, int pass) {
         this.acc_num = (int)(Math.random() * 500000000);
         this.name = name;
         this.aadhaarnum = aadhaarnum;
         this.email = email;
         this.contact_num = contact_num;
+        this.pass = pass;
     }
 
     public String getName() {
@@ -53,5 +56,21 @@ public class AccountDetails {
 
     public void setAcc_num(int acc_num) {
         this.acc_num = acc_num;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public int getPass() {
+        return pass;
+    }
+
+    public void setPass(int pass) {
+        this.pass = pass;
     }
 }
