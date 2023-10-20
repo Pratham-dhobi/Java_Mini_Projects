@@ -13,8 +13,8 @@ public class Bank {
             System.out.println("\n0)----->Exit");
             System.out.println("1)----->Create Account");
             System.out.println("2)----->Deposit");
-//            System.out.println("3)----->Withdraw");
-//            System.out.println("4)----->Check Balance");
+            System.out.println("3)----->Withdraw");
+            System.out.println("4)----->Check Balance");
             System.out.print("ENTER THE CHOICE : ");
             int choice = sc.nextInt();
 
@@ -51,7 +51,7 @@ public class Bank {
                     int acc_num = sc.nextInt();
                     System.out.print("Enter the password : ");
                     int pass = sc.nextInt();
-                    int flag = 0;
+                    boolean flag = false;
                     for(int i = 0; i < acc.size(); i++) {
                         if(acc.get(i).getAcc_num() == acc_num && acc.get(i).getPass() == pass) {
                             System.out.print("Enter the Amount : ");
@@ -59,12 +59,54 @@ public class Bank {
                             acc.get(i).setBalance(acc.get(i).getBalance() + amount);
                             System.out.println("RS." + (amount) + " DEPOSITED IN YOUR ACCOUNT");
                             System.out.println("current balance : "+acc.get(i).getBalance());
-                            flag = 1;
+                            flag = true;
                             break;
                         }
                     }
-                    if(flag == 0) {
-                        System.out.println("Enter the valid account number and password!");
+                    if(!flag) {
+                        System.out.println("Enter the valid Details");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Enter the Account number : ");
+                    acc_num = sc.nextInt();
+                    System.out.print("Enter the password : ");
+                    pass = sc.nextInt();
+                    flag = false;
+                    for(int i = 0; i < acc.size(); i++) {
+                        if(acc.get(i).getAcc_num() == acc_num && acc.get(i).getPass() == pass) {
+                            System.out.print("Enter the amount :");
+                            double withdraw_amt = sc.nextDouble();
+                            if(acc.get(i).getBalance() >= withdraw_amt) {
+                                acc.get(i).setBalance(acc.get(i).getBalance() - withdraw_amt);
+                                System.out.println("RS." + (withdraw_amt) + " IS DEBITED FROM YOUR ACCOUNT.");
+                                flag = true;
+                            } else {
+                                System.out.println("You can not withdraw money because of less balance.");
+                                flag = true;
+                            }
+                            break;
+                        }
+                    }
+                    if(!flag) {
+                        System.out.println("Enter the valid Details");
+                    }
+                    break;
+                case 4:
+                    System.out.print("Enter the Account number : ");
+                    acc_num = sc.nextInt();
+                    System.out.print("Enter the password : ");
+                    pass = sc.nextInt();
+                    flag = false;
+                    for(int i = 0; i < acc.size(); i++) {
+                        if(acc.get(i).getAcc_num() == acc_num && acc.get(i).getPass() == pass) {
+                            System.out.println("Account Balance : "+ (acc.get(i).getBalance()));
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if(!flag) {
+                        System.out.println("Enter the valid details");
                     }
                     break;
                 default:

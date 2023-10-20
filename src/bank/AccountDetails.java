@@ -6,7 +6,7 @@ public class AccountDetails {
     private String email;
     private int contact_num;
     private int acc_num;
-    private double balance = 0.00;
+    private double balance;
     private int pass;
 
     public AccountDetails(String name, int aadhaarnum, String email, int contact_num, int pass) {
@@ -16,6 +16,7 @@ public class AccountDetails {
         this.email = email;
         this.contact_num = contact_num;
         this.pass = pass;
+        this.balance = 0.00;
     }
 
     public String getName() {
